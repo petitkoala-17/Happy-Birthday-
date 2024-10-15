@@ -1,0 +1,313 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2a7a48; /* Slightly darker green */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background-image: url(../Images/close_model_bg.jpg);
+    background-size: cover;
+    background-position: center -315%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Dimming effect */
+    z-index: 1; /* Layering */
+}
+
+.text-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background for text container */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 2; /* Ensure text is above the overlay */
+}
+
+.intro p {
+    color: #ffffff; /* White text for better contrast */
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #225c3c; /* Darker green for header */
+    color: gold; /* Golden color */
+}
+
+.s_headings {
+    text-align: center;
+    font-size: 25px;
+    padding: 25px 0;
+    color: gold;
+}
+
+.regular {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+/* Intro section styling */
+.intro {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+/* Button styling */
+button {
+    background-color: gold;
+    color: #2a7a48;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px; /* Space above the button */
+}
+
+button:hover {
+    background-color: #d4af37; /* Slightly darker gold */
+}
+
+/* Photo gallery styling */
+.photo-gallery {
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    justify-content: center;
+    gap: 10px; /* Space between images */
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.image-container {
+    position: relative; /* Positioning for absolute caption */
+    display: inline-block; /* Arrange images in a line */
+    margin: 10px; /* Space between images */
+}
+
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(7, 7, 7, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    z-index: 20; /* Ensure the caption stays on top */
+}
+
+/* Smooth transition for blur removal */
+img {
+    width: 200px;
+    height: auto;
+    transition: filter 0.6s ease, transform 0.3s ease; /* Add smooth unblur and slight zoom effect */
+}
+
+.blurred {
+    filter: blur(46px);
+    cursor: pointer;
+}
+
+img.revealed {
+    filter: blur(0);
+    z-index: 10;
+    position: relative;
+    transform: scale(1.05); /* Slight zoom effect to make it interactive */
+}
+
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Reveal animation */
+.revealed {
+    filter: blur(0); /* Remove blur when revealed */
+    animation: fadeIn 0.5s ease; /* Add fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ----------- Riddles and Paper-Like Section Styling ----------- */
+
+/* Paper container styling */
+.riddle-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Parchment style container for riddles */
+.paper-container {
+    background: url('../Images/parchement.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Birthday message */
+.birthday-message {
+    color: black; /* Revealed text will be black */
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none; /* Initially hide the birthday messages */
+}
+
+/* Riddle section styling with hidden reveal */
+.riddle-section {
+    background-color: #225c3c; /* Darker green background for riddle sections */
+    color: gold; /* Gold color for the text */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+.revealed-message {
+    color: black; /* Ensure it's set to black */
+    font-size: 1em;
+    text-align: center;
+    display: none; /* Hidden until unlocked */
+}
+
+/* Input and button styling within the riddle section */
+.riddle-section input[type="text"] {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.riddle-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: gold;
+    color: #2a7a48; /* Green text on button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.riddle-section button:hover {
+    background-color: #d4af37; /* Slightly darker gold */
+}
+
+/* Correct/incorrect message styling */
+.message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ----------- Navigation Buttons Styling ----------- */
+.navigation-buttons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space out the buttons */
+    align-items: center; /* Center align vertically */
+    margin: 20px auto; /* Center the buttons and add vertical spacing */
+    max-width: 600px; /* Set a max-width for the button container */
+}
+
+.previous-button, .next-button {
+    flex: 1; /* Make both buttons take equal space */
+    padding: 12px; /* Increased padding for better touch area */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Round the corners */
+    background-color: gold; /* Green background */
+    color: #2a7a48; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none; /* Remove underline for anchor */
+    margin: 0 5px; /* Add margin between buttons */
+}
+
+.previous-button:hover, .next-button:hover {
+    background-color: #d4af37; /* Darker green on hover */
+}
+
+/* ----------- Mobile Responsiveness Improvements ----------- */
+@media (max-width: 768px) {
+    .background {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .text-container {
+        width: 90%; /* Adjust the container width */
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    header {
+        padding: 20px 0;
+    }
+
+    .intro {
+        font-size: 1em; /* Slightly reduce font size on smaller screens */
+    }
+
+    .gallery img {
+        max-width: 100%; /* Ensure gallery images fit the screen */
+        height: auto;
+    }
+
+    .navigation-buttons {
+        max-width: 90%; /* Reduced width for mobile screens */
+    }
+}

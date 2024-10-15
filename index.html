@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! :)</title>
+    <link rel="stylesheet" href="CSS/birthday.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="background">
+    <header>
+        <h1>Welcome to Your Birthday Website &#x1F973</h1>
+    </header>
+
+    <div class="text-container">
+    <section class="intro">
+        <p>Happy Birthday, Stella!</p><br> 
+        <p>This site is a small gift for your birthday, in a different way from what you may be used to &#x1F609;</p><br> 
+        <p>I hope you enjoy each section dedicated to celebrating you!</p>
+        <button onclick="window.location.href='about_you.html'">Start Here</button>
+    </section>
+    </div>
+
+    <!-- Audio Element (Hidden but still playing) -->
+    <audio id="background-music" autoplay loop hidden></audio>
+
+    <script>
+        // Confetti settings
+        function startConfetti() {
+            var duration = 1.5 * 1000; // 1.5 seconds
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3, // Number of particles per burst
+                    angle: 65,
+                    spread: 80,
+                    origin: { x: 0 }, // Start from left
+                    colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'], // Custom colors
+                });
+
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 }, // Start from right
+                    colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'],
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
+        // Start confetti on page load
+        window.onload = function() {
+            startConfetti();
+
+            // List of songs
+            const songs = [
+                'audio/In_Your_Way.mp3',
+                'audio/Me_And_U.mp3',
+                'audio/Body_And_Soul.mp3',
+                'audio/Party_No_Dey_Stop.mp3',
+            ];
+
+            const audioElement = document.getElementById('background-music');
+
+            // Check if there's already a playing song stored in session
+            const savedSong = sessionStorage.getItem('currentSong');
+            const savedTime = sessionStorage.getItem('currentTime');
+
+            if (savedSong && savedTime) {
+                // Load the saved song and time position
+                audioElement.src = savedSong;
+                audioElement.currentTime = savedTime;
+                audioElement.play();
+            } else {
+                // If no song is saved, play a random one
+                playRandomSong();
+            }
+
+            // Save the current song and time position before the user navigates away
+            window.onbeforeunload = function() {
+                sessionStorage.setItem('currentTime', audioElement.currentTime);
+            };
+        };
+
+        // Play random song and save it to session
+        function playRandomSong() {
+            const randomIndex = Math.floor(Math.random() * songs.length);
+            const randomSong = songs[randomIndex];
+            const audioElement = document.getElementById('background-music');
+            audioElement.src = randomSong;
+            audioElement.play();
+            sessionStorage.setItem('currentSong', randomSong);
+        }
+    </script>
+    
+</body>
+</html>

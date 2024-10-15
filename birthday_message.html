@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! :)</title>
+    <link rel="stylesheet" href="CSS/birthday.css"> 
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Riddles Challenge</h1>
+        <h2 class="s_headings">To reveal the message within me, you must solve my riddles three</h2>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <p><i>Behind each riddle is a section of the whole message. Answering each one reveals the part of the message behind it. Goodluck!</i> &#x1F575;&#x200D;&#x2640;&#xFE0F;</p>
+    </section>
+
+    <!-- Paper-Like Riddle Section -->
+    <div class="riddle-container">
+        <div class="paper-container">
+
+            <!-- Riddle Section 1 -->
+            <div class="section" id="section-1">
+                <h3 class="riddle-title" id="title-1">Riddle 1</h3>
+                <p class="riddle-question" id="question-1"><b><i>I am everywhere in nature, and you love me above all others. What color am I?</i></b></p>
+                <input type="text" id="answer-1" placeholder="Ex: Blue">
+                <button onclick="checkAnswer(1)">Submit Answer</button>
+                <p class="message" id="message-1"></p>
+                <p class="birthday-message hidden" id="birthday-1">
+                <i>Happy Birthday, Stelly! 🎉 &#x1F973;<br>
+                I hope your day is filled with love and joy.</i>
+            </p>
+            </div>
+
+            <!-- Riddle Section 2 -->
+            <div class="section" id="section-2">
+                <h3 class="riddle-title" id="title-2">Riddle 2</h3>
+                <p class="riddle-question" id="question-2"><b><i>I am small, but hold great significance to you. I appear in the title of one of Alexandre Dumas' most famous tales, and I am often found in tight-knit group of friends. What is my value?</i></b></p>
+                <input type="text" id="answer-2" placeholder="Figure it out :)">
+                <button onclick="checkAnswer(2)">Submit Answer</button>
+                <p class="message" id="message-2"></p>
+                <p class="birthday-message hidden" id="birthday-2">
+                  <i>I wish you many more years filled with lots of blessings, and I hope that God grants you all your heart's desires. I wish for you, in this new year, to achieve all the goals you set, even exceeding them. For the lives of the kids you coach, your friends, and family, I wish you always have a positive impact. Even though I "wish" this, I have no doubt it will be the case, given the qualities you possess: your strong-will, kind heart and beautiful soul, among many others.
+                        No matter the challenges that may arise, I wish for you to find the strength to overcome them, as challenges are meant to build. I hope you keep growing positively in all areas of life, nurturing those around you to grow as well, creating beautiful memories and amazing stories to tell.
+                        </i>
+                  </p>
+            </div>
+
+            <!-- Riddle Section 3 -->
+            <div class="section" id="section-3">
+                <h3 class="riddle-title" id="title-3">Riddle 3</h3>
+                <p class="riddle-question" id="question-3"><b><i>I am a distance often run with speed and grace. In a city finals, I earned my first medal. What distance was it, that earned my place on the podium?</i></b></p>
+                <input type="text" id="answer-3" placeholder="Ex: 800m">
+                <button onclick="checkAnswer(3)">Submit Answer</button>
+                <p class="message" id="message-3"></p>
+                <p class="birthday-message hidden" id="birthday-3">
+                  <i>Personally, I consider you a blessing. You have impacted my life positively; supporting me through everything, motivating me, and helping me to be a better person. I cannot overstate how genuinely grateful I am for you, and how much I appreciate the time we have had together so far through all the ups and downs. You are special, Stella. You will always have my support, and I wish for us to go through life together, growing and creating many more beautiful memories.
+                        I want you to especially keep that beautiful smile on your face at all times, as it lights up every room in which you are!<br>
+                        Here's to a happy birthday once again! Have a blast and enjoy! &#x1F942; &#X1F64F;&#x2764;&#xFE0F;<br>
+                        
+                        With love,
+                        Ryan</i> 
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="button-container">
+      <button class="previous-button" onclick="location.href='about_you.html'">Previous: All About You</button>
+      <button class="next-button" onclick="location.href='index.html'">Back To Home</button>
+  </div>
+
+    <script>
+      // JavaScript for checking riddles
+      function checkAnswer(riddleNumber) {
+          const answers = ["Green", "3", "200m"]; // Correct answers
+          const userAnswer = document.getElementById(`answer-${riddleNumber}`).value; // No lowercase conversion here
+          const message = document.getElementById(`message-${riddleNumber}`);
+          const birthdayMessage = document.getElementById(`birthday-${riddleNumber}`);
+          const riddleTitle = document.getElementById(`title-${riddleNumber}`);
+          const riddleQuestion = document.getElementById(`question-${riddleNumber}`);
+          const answerInput = document.getElementById(`answer-${riddleNumber}`);
+          const submitButton = answerInput.nextElementSibling; // Get the button next to the input
+  
+          // Compare user input in a case-insensitive manner
+          if (userAnswer.toLowerCase() === answers[riddleNumber - 1].toLowerCase()) {
+              // Hide riddle title, question, input, and button elements
+              riddleTitle.style.display = "none";
+              riddleQuestion.style.display = "none";
+              answerInput.style.display = "none";
+              submitButton.style.display = "none"; // Hide submit button
+              
+              // Show birthday message
+              birthdayMessage.classList.remove("hidden");
+              message.textContent = ""; // Clear previous message
+          } else {
+              message.textContent = "Try again!";
+              message.style.color = "red";
+          }
+      }
+  </script>
+  
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</body>
+</html>
