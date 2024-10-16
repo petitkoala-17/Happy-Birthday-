@@ -281,3 +281,33 @@ img.revealed {
 .previous-button:hover, .next-button:hover {
     background-color: #d4af37; /* Darker green on hover */
 }
+
+/* ----------- Mobile Responsiveness Improvements ----------- */
+@media (max-width: 768px) {
+    .background {
+        background-position: center -320%;
+        background-size: cover;
+    }
+
+    .text-container {
+        width: 90%; /* Adjust the container width */
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    header {
+        padding: 20px 0;
+    }
+
+    .intro {
+        font-size: 1em; /* Slightly reduce font size on smaller screens */
+    }
+
+    .gallery img {
+        max-width: 100%; /* Ensure gallery images fit the screen */
+        height: auto;
+    }
+
+    .navigation-buttons {
+        max-width: 90%; /* Reduced width for mobile screens */
+    }
+}
