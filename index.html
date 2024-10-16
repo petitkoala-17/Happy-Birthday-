@@ -22,13 +22,10 @@
     </section>
     </div>
 
-    <!-- Audio Element (Hidden but still playing) -->
-    <audio id="background-music" autoplay loop hidden></audio>
-
     <script>
         // Confetti settings
         function startConfetti() {
-            var duration = 1.5 * 1000; // 1.5 seconds
+            var duration = 1.5 * 1000; // 6 seconds
             var end = Date.now() + duration;
 
             (function frame() {
@@ -55,48 +52,7 @@
         }
 
         // Start confetti on page load
-        window.onload = function() {
-            startConfetti();
-
-            // List of songs
-            const songs = [
-                'audio/In_Your_Way.mp3',
-                'audio/Me_And_U.mp3',
-                'audio/Body_And_Soul.mp3',
-                'audio/Party_No_Dey_Stop.mp3',
-            ];
-
-            const audioElement = document.getElementById('background-music');
-
-            // Check if there's already a playing song stored in session
-            const savedSong = sessionStorage.getItem('currentSong');
-            const savedTime = sessionStorage.getItem('currentTime');
-
-            if (savedSong && savedTime) {
-                // Load the saved song and time position
-                audioElement.src = savedSong;
-                audioElement.currentTime = savedTime;
-                audioElement.play();
-            } else {
-                // If no song is saved, play a random one
-                playRandomSong();
-            }
-
-            // Save the current song and time position before the user navigates away
-            window.onbeforeunload = function() {
-                sessionStorage.setItem('currentTime', audioElement.currentTime);
-            };
-        };
-
-        // Play random song and save it to session
-        function playRandomSong() {
-            const randomIndex = Math.floor(Math.random() * songs.length);
-            const randomSong = songs[randomIndex];
-            const audioElement = document.getElementById('background-music');
-            audioElement.src = randomSong;
-            audioElement.play();
-            sessionStorage.setItem('currentSong', randomSong);
-        }
+        window.onload = startConfetti;
     </script>
     
 </body>
