@@ -284,7 +284,7 @@ img.revealed {
 
 @media (max-width: 768px) {
     .background {
-        background-position: center top; /* Ensures image stays positioned */
+        background-position: center center; /* Ensures image stays positioned */
         background-size: contain; /* Ensure the whole image fits on mobile */
         height: 100vh; /* Full viewport height */
     }
