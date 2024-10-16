@@ -8,7 +8,7 @@ body {
 }
 
 .background {
-    background-image: url(../Images/close_model_bg.jpg);
+    background-image: url(../images/close_model_bg.jpg);
     background-size: cover;
     background-position: center -315%;
     background-repeat: no-repeat;
@@ -189,7 +189,7 @@ img.revealed {
 
 /* Parchment style container for riddles */
 .paper-container {
-    background: url('../Images/parchement.jpg') no-repeat center center;
+    background: url('../images/parchement.jpg') no-repeat center center;
     background-size: cover;
     padding: 20px;
     border-radius: 15px;
