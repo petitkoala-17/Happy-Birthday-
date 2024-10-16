@@ -22,40 +22,40 @@
     </section>
     </div>
 
-    <script>
-        // Confetti settings
-        function startConfetti() {
-            var duration = 1.5 * 1000; // 1.5 seconds
-            var end = Date.now() + duration;
+<script>
+    function startConfetti() {
+        var duration = 1.5 * 1000; // Duration of confetti
+        var end = Date.now() + duration;
 
-            (function frame() {
-                confetti({
-                    particleCount: 3, // Number of particles per burst
-                    angle: 65,
-                    spread: 80,
-                    origin: { x: 0 }, // Start from left
-                    colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'], // Custom colors
-                });
+        (function frame() {
+            confetti({
+                particleCount: 3,
+                angle: 65,
+                spread: 80,
+                origin: { x: 0 }, // Start from left
+                colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'],
+            });
 
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }, // Start from right
-                    colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'],
-                });
+            confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }, // Start from right
+                colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'],
+            });
 
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-        }
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
 
-        // Start confetti on page load
-        window.onload = function() {
-            startConfetti();
+    // Start confetti on page load
+    window.onload = function() {
+        startConfetti();
+    };
+</script>
 
-    </script>
     
 </body>
 </html>
