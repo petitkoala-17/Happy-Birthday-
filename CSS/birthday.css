@@ -37,10 +37,7 @@ body {
     border-radius: 10px;
     text-align: center;
     z-index: 2; /* Ensure text is above the overlay */
-}
-
-.intro p {
-    color: #ffffff; /* White text for better contrast */
+    max-width: 90%; /* Ensure it doesn't overflow on mobile */
 }
 
 /* Header styling */
@@ -86,8 +83,6 @@ button {
 
 button:hover {
     background-color: #d4af37; /* Slightly darker gold */
-}
-
 /* Photo gallery styling */
 .photo-gallery {
     text-align: center;
@@ -302,12 +297,9 @@ img.revealed {
         font-size: 1em; /* Slightly reduce font size on smaller screens */
     }
 
-    .gallery img {
-        max-width: 100%; /* Ensure gallery images fit the screen */
-        height: auto;
-    }
-
-    .navigation-buttons {
-        max-width: 90%; /* Reduced width for mobile screens */
+    button {
+        width: 100%; /* Full width buttons for better accessibility */
+        padding: 15px; /* Increase padding for easier clicking */
+        font-size: 1.2em; /* Increase font size for better readability */
     }
 }
