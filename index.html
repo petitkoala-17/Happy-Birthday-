@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday! :)</title>
-    <link rel="stylesheet" type="text/css" href="CSS/birthday.css">
+    <link rel="stylesheet" href="CSS/birthday.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 
@@ -25,7 +25,7 @@
     <script>
         // Confetti settings
         function startConfetti() {
-            var duration = 1.5 * 1000; // 6 seconds
+            var duration = 1.5 * 1000; // 1.5 seconds
             var end = Date.now() + duration;
 
             (function frame() {
@@ -52,7 +52,9 @@
         }
 
         // Start confetti on page load
-        window.onload = startConfetti;
+        window.onload = function() {
+            startConfetti();
+
     </script>
     
 </body>
