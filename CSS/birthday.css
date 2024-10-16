@@ -284,15 +284,18 @@ img.revealed {
 
 @media (max-width: 768px) {
     .background {
-        background-position: center center; /* Ensures image stays positioned */
-        background-size: contain; /* Ensure the whole image fits on mobile */
-        height: 100vh; /* Full viewport height */
+        background-position: center top; /* Shift image upwards */
+        background-size: cover; /* Ensure it covers the screen */
+        height: 100vh; /* Maintain full viewport height */
     }
 
     .text-container {
-        width: 90%; /* Adjust the container width */
-        padding: 10px; /* Reduce padding for mobile */
+        position: relative; /* Ensure it stays centered */
+        top: 50%; /* Keep text vertically centered */
+        transform: translateY(-50%);
     }
+}
+
 
     header {
         padding: 20px 0;
