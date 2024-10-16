@@ -285,9 +285,8 @@ img.revealed {
 /* ----------- Mobile Responsiveness Improvements ----------- */
 @media (max-width: 768px) {
     .background {
-        background-position: center top; /* Ensures image stays positioned */
-        background-size: contain; /* Ensure the whole image fits on mobile */
-        height: 100vh; /* Full viewport height */
+        background-position: center top; /* Ensure the image is positioned properly on mobile */
+        background-size: cover;
     }
 
     .text-container {
@@ -312,4 +311,3 @@ img.revealed {
         max-width: 90%; /* Reduced width for mobile screens */
     }
 }
-
