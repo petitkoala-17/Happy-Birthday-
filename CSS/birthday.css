@@ -10,7 +10,7 @@ body {
 .background {
     background-image: url('../images/close_model_bg.jpg');
     background-size: cover;
-    background-position: center top -10%; /* Adjusted to move the image down */
+    background-position: center top; /* Adjusted to move the image down */
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
@@ -282,20 +282,17 @@ img.revealed {
     background-color: #d4af37; /* Darker green on hover */
 }
 
+/* ----------- Mobile Responsiveness Improvements ----------- */
 @media (max-width: 768px) {
     .background {
-        background-position: center top; /* Shift image upwards */
-        background-size: cover; /* Ensure it covers the screen */
-        height: 100vh; /* Maintain full viewport height */
+        background-position: center top; /* Ensure the image is positioned properly on mobile */
+        background-size: cover;
     }
 
     .text-container {
-        position: relative; /* Ensure it stays centered */
-        top: 50%; /* Keep text vertically centered */
-        transform: translateY(-50%);
+        width: 90%; /* Adjust the container width */
+        padding: 10px; /* Reduce padding for mobile */
     }
-}
-
 
     header {
         padding: 20px 0;
@@ -314,5 +311,3 @@ img.revealed {
         max-width: 90%; /* Reduced width for mobile screens */
     }
 }
-
-
