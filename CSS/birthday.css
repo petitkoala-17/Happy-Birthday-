@@ -8,7 +8,7 @@ body {
 }
 
 .background {
-    background-image: url('../images/close_model2_bg.jpg');
+    background-image: url('../images/close_model_bg.jpg');
     background-size: cover;
     background-position: center top -10%; /* Adjusted to move the image down */
     background-repeat: no-repeat;
