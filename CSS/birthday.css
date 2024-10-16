@@ -10,7 +10,7 @@ body {
 .background {
     background-image: url('../images/close_model_bg.jpg');
     background-size: cover;
-    background-position: center -320%;
+    background-position: center -400%;
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
