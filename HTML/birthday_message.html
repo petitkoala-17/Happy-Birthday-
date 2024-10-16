@@ -77,32 +77,33 @@
 
     <script>
       // JavaScript for checking riddles
-      function checkAnswer(riddleNumber) {
-          const answers = ["Green", "3", "200m"]; // Correct answers
-          const userAnswer = document.getElementById(`answer-${riddleNumber}`).value; // No lowercase conversion here
-          const message = document.getElementById(`message-${riddleNumber}`);
-          const birthdayMessage = document.getElementById(`birthday-${riddleNumber}`);
-          const riddleTitle = document.getElementById(`title-${riddleNumber}`);
-          const riddleQuestion = document.getElementById(`question-${riddleNumber}`);
-          const answerInput = document.getElementById(`answer-${riddleNumber}`);
-          const submitButton = answerInput.nextElementSibling; // Get the button next to the input
-  
-          // Compare user input in a case-insensitive manner
-          if (userAnswer.toLowerCase() === answers[riddleNumber - 1].toLowerCase()) {
-              // Hide riddle title, question, input, and button elements
-              riddleTitle.style.display = "none";
-              riddleQuestion.style.display = "none";
-              answerInput.style.display = "none";
-              submitButton.style.display = "none"; // Hide submit button
-              
-              // Show birthday message
-              birthdayMessage.classList.remove("hidden");
-              message.textContent = ""; // Clear previous message
-          } else {
-              message.textContent = "Try again!";
-              message.style.color = "red";
-          }
-      }
+function checkAnswer(riddleNumber) {
+    const answers = ["Green", "3", "200m"]; // Correct answers
+    const userAnswer = document.getElementById(`answer-${riddleNumber}`).value.trim(); // Trim whitespace
+    const message = document.getElementById(`message-${riddleNumber}`);
+    const birthdayMessage = document.getElementById(`birthday-${riddleNumber}`);
+    const riddleTitle = document.getElementById(`title-${riddleNumber}`);
+    const riddleQuestion = document.getElementById(`question-${riddleNumber}`);
+    const answerInput = document.getElementById(`answer-${riddleNumber}`);
+    const submitButton = answerInput.nextElementSibling; // Get the button next to the input
+
+    // Compare user input in a case-insensitive manner
+    if (userAnswer.toLowerCase() === answers[riddleNumber - 1].toLowerCase()) {
+        // Hide riddle title, question, input, and button elements
+        riddleTitle.style.display = "none";
+        riddleQuestion.style.display = "none";
+        answerInput.style.display = "none";
+        submitButton.style.display = "none"; // Hide submit button
+        
+        // Show birthday message
+        birthdayMessage.classList.remove("hidden");
+        message.textContent = ""; // Clear previous message
+    } else {
+        message.textContent = "Try again!";
+        message.style.color = "red";
+    }
+}
+
   </script>
   
     <style>
