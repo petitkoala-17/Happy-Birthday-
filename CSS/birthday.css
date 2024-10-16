@@ -285,7 +285,7 @@ img.revealed {
 /* ----------- Mobile Responsiveness Improvements ----------- */
 @media (max-width: 768px) {
     .background {
-        background-position: center top -5%; /* Ensure the image is positioned properly on mobile */
+        background-position: center top -15%; /* Ensure the image is positioned properly on mobile */
         background-size: cover;
     }
 
