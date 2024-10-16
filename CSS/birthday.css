@@ -8,7 +8,7 @@ body {
 }
 
 .background {
-    background-image: url(../images/close_model_bg.jpg);
+    background-image: url('../images/close_model_bg.jpg');
     background-size: cover;
     background-position: center -315%;
     background-repeat: no-repeat;
